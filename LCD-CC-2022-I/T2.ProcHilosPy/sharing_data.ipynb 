@@ -1,0 +1,115 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "sharing_data.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyOemj4ede/9Zof9JZt1eqcW",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ROrodrigp/LCD-CC-2022-I/blob/main/LCD-CC-2022-I/T2.ProcHilosPy/sharing_data.ipynb%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "HvtDUXKY9RDJ"
+      },
+      "source": [
+        "import multiprocessing as mp \n",
+        "import time "
+      ],
+      "execution_count": 7,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ftm53oEG9S9s"
+      },
+      "source": [
+        "def calc_cuad(numeros,val):\n",
+        "\tfor idx, n in enumerate(numeros):\n",
+        "\t\t#result.append(n*n)\t\n",
+        "\t\tresult[idx] = n * n \n",
+        "\tprint('Resultado del proceso', result[:])"
+      ],
+      "execution_count": 8,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "hjoXzBM99S_7",
+        "outputId": "83475714-5d1a-4f00-8faa-45392e8517f4"
+      },
+      "source": [
+        "result = mp.Array('i',10)\n",
+        "nums = range(10)\n",
+        "t = time.time()\n",
+        "\n",
+        "\n",
+        "p1 = mp.Process(target=calc_cuad, args=(nums,result))\n",
+        "p1.start()\n",
+        "p1.join()\n"
+      ],
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Resultado del proceso [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EGMK6kZ39TCR",
+        "outputId": "ffcabcf9-030a-461c-88ba-efd02d29d951"
+      },
+      "source": [
+        "print('Resultado fuera del proceso ', result[:])\n",
+        "print('Tiempo de ejecución ', time.time()-t)\n",
+        "print('Finaliza ejecución')"
+      ],
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Resultado fuera del proceso  [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n",
+            "Tiempo de ejecución  0.044593095779418945\n",
+            "Finaliza ejecución\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
