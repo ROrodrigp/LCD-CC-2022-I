@@ -1,17 +1,5 @@
 import multiprocessing 
 import time 
-"""
-Con el método cpu_count() se muestra el número de procesadores del sistema que se está utilizando 
-"""
-
-print(multiprocessing.cpu_count())
-
-"""
-El identificador del proceso actual se accede por medio de current_process()
-"""
-#PID del proceso actual 
-print(multiprocessing.current_process().pid) #Este es el pid del proceso que está invocando al current process
-
 
 
 def TareaHijo():
@@ -25,7 +13,7 @@ def main():
 	miproceso.start()
 	miproceso.join()
 
-print('Fin del proceso padre')
+	print('Fin del proceso padre')
 
 if __name__ == '__main__':
 	main()
