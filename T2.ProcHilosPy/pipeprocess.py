@@ -7,7 +7,7 @@ def worker(conn):
     conn.close()
 
 conn1, conn2 = multiprocessing.Pipe() #Devuelve dos objetos, la conexión del padre al hijo y la conexión del hijo al padre
-process = multiprocessing.Process(target=worker, args=(conn2,))
+process = multiprocessing.Process(target=worker, args=(conn2,)) #Le mando como argumento un objeto de tipo conexión del hijo al padre 
 process.start()
 
 conn1.send("sent from main process")
