@@ -15,7 +15,7 @@ def work(q):
     worker.process()
 
 if __name__ == '__main__':
-    my_queue = multiprocessing.Queue()
+    my_queue = multiprocessing.Queue() #Crea una cola 
 
     p = multiprocessing.Process(target=work, args=(my_queue,))
     p.start()

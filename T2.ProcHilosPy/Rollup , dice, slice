@@ -1,0 +1,19 @@
+Rollup , dice, slice 
+
+
+ROLLUP:
+Se quiere consultar las ventas totales semanales desglosado por tienda y por estado 
+
+
+DICE:
+Artículo: Asadores 
+Región: Norte del país 
+Tiempo: Mensual 
+
+Consultar las ventas mensuales de asadores en las tiendas del norte del país.
+Revisar 
+
+SLICE: 
+Tienda: Tienda zona de coyoacán 
+Revisaremos ventas diarias de enero a febrero del 2020 en la tienda de coyoacan. Después ver
+las ventas diarias de enero a febrero del 2020 de los lácteos
